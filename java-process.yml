@@ -1,0 +1,30 @@
+--- # Getting running process
+- name: gathering java process from running process
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Getting the running process of Java
+      shell: ps -ef | grep -i httpd
+      register: ps_cmd
+    - name: Captured output
+      debug:
+        var: ps_cmd.stdout
+
+    - name: get the OS version
+      shell: cat /etc/os-release
+      register: ps_cmd
+
+    - name: Captured OS Information
+      debug:
+        var: ps_cmd.stdout
+   
+    - name: Get the Kernel version
+      shell: uname -r
+      register: ps_cmd
+
+    - name: Kernel details
+      debug:
+        var: ps_cmd.stdout

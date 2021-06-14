@@ -1,0 +1,14 @@
+--- # Playbook for fetching running java process
+- name: Getting the Java Process
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: checking running process
+      shell: ps -ef | grep -i java 
+      register: ps_cmd
+    - name: show captured process
+      debug:
+        var: ps_cmd.stdout
