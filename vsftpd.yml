@@ -1,0 +1,10 @@
+--- # install vsftpd package on my linux server
+- name: Installing the vsftpd rpm 
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install vsftpd
+      action: yum name=vsftpd state=installed

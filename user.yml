@@ -1,0 +1,13 @@
+--- # create a user in local machine
+- name: create a user in local local server 
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: creating a new user
+      user:
+        name: kasthu
+        state: present
+        password: password 

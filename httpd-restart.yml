@@ -1,0 +1,9 @@
+--- # start the httpd service 
+- hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: start the httpd service on local machine
+      action: service name=httpd state=restarted

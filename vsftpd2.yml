@@ -1,0 +1,11 @@
+--- # Starting the vsftpd package
+- name: Restarting the vsftpd 
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Restarting the vsftpd package
+      action: service name=vsftpd state=restarted
+
