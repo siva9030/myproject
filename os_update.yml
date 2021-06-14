@@ -1,0 +1,10 @@
+--- # Playbook for OS update
+- name: Updating the OS 
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: OS update
+      action: yum name=kernel state=latest
