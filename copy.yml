@@ -1,0 +1,9 @@
+--- # copying a file from source to destination 
+- name: copying the a file
+  hosts: test
+  user: ansible
+  become: yes
+  connection: ssh
+  
+  tasks:
+    - copy: src="sample.yml" dest="/opt/"
